@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SerWer</title>
+
+    <!-- Estilo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icono Logo-->
+    <link rel="shorcut icon" href="images/Logo.jpg" type="image/gif" />
+</head>
+<body>
+
+    <header>
+       <div class="header">
+            <div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <div class="log">
+                            <li><a href="index.html"><img src="images/logo3.png" alt="Logo" /></a></li>
+                        </div>
+                        <li><a href="index.html"><h1 class="bh">Inicio</h1></a></li>
+                        <li><a href="about.html"><h1 class="bh">Sobre Nosotros</h1></a></li>
+                        <li><a href="product.html"><h1 class="bh">Tienda</h1></a></li>
+                        <li><a href="contact.html"><h1 class="bh">Contactanos</h1></a></li>
+                    </ul>
+                </nav>
+            </div>
+       </div>
+    </header>
+
+    <main>
+        <div class="container" id="app">
+            <form action="resfor.html" target="_blank" style="background-color: rgb(41, 2, 63);margin:10px auto ; width: 400px; padding: 20px;" onsubmit="return validarFormulario()" name="app">
+                <h2>Contactos:</h2><br>
+                <label for="Nombre">Nombre:</label><input size="30" type="text" name="Nombre"> <br><br>
+                <label for="Apellido">Apellido:</label><input size="30" type="text" name="Apellido"> <br><br>
+                <label for="Ciudad">Ciudad:</label><input type="text" name="Ciudad" value="Mar del Plata"> <br><br>
+                <label for="Fecha">Fecha (mm/dd/yyyy): </label> <input type="date" name="Fecha"> <br><br>
+                <label for="mail">Mail: </label><input type="email" name="mail"> <br><br>
+    
+                <p>Género (Radio)
+                    <input type="radio" name="gender" value="Hombre" checked>Hombre
+                    <input type="radio" name="gender" value="Mujer">Mujer
+                    <input type="radio" name="gender" value="Otro"> Otro
+                </p><br>
+    
+                <label for="Consulta">Consulta: (Select)</label>
+                <select id="Consulta" name="Consulta">
+                    <option value="">Motivo de consulta</option>
+                    <option value="Compras">Compras</option>
+                    <option value="Servicio Tecnico">Servicio Tecnico</option>
+                    <option value="Otras Consultas">Otras Consultas</option>
+                </select>
+                <br><br>
+                <label for="comentarios">Mensaje:       .</label>
+                <br>
+                <label for="comentarios"></label> <textarea name="comentarios" rows="10" cols="30" placeholder="Ingrese su consulta aqui..."></textarea>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+    
+    </main>
+
+    <footer>
+        <div>
+            <p>© 2023 All Rights Reserved. Diseñado por <a href="https://www.facebook.com/SerWerMDP"> SerWer Lab para Codo a Codo</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function validarFormulario() {
+            // Obtener los valores ingresados por el usuario
+            var nombre = document.forms["app"]["Nombre"].value;
+            var apellido = document.forms["app"]["Apellido"].value;
+            var email = document.forms["app"]["mail"].value;
+
+            if (nombre == "") {
+                alert("Por favor, ingrese su nombre.");
+                return false;
+            }
+
+            if (apellido == "") {
+                alert("Por favor, ingrese su apellido.");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Por favor, ingrese su correo electrónico.");
+                return false;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, ingrese un correo electrónico válido.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
